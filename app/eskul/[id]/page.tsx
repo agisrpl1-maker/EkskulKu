@@ -1,5 +1,5 @@
 import { ambilEkskul, ambilAnggota } from '@/data/ambil';
-import { ekskul, pendaftar, tambahPendaftar, getJamSesi } from '@/data/ekskul';
+import { ekskul, pendaftar, tambahPendaftar, JAM_SESI } from '@/data/ekskul';
 import { notFound } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { Suspense } from 'react';
@@ -181,7 +181,7 @@ export default async function DetailEkskulPage({ params }: Props) {
 
     return {
       success: true,
-      message: `Pendaftar #${nomorBaru} berhasil: ${currentEkskul.nama}, ${currentEkskul.hari}, ${currentEkskul.sesi} (${getJamSesi(currentEkskul.sesi)}).`,
+      message: `Pendaftar #${nomorBaru} berhasil: ${currentEkskul.nama}, ${currentEkskul.hari}, ${currentEkskul.sesi} (${JAM_SESI[currentEkskul.sesi]}).`,
       namaError: null,
       kelasError: null,
       nilaiNama: nama.trim(),
@@ -200,7 +200,7 @@ export default async function DetailEkskulPage({ params }: Props) {
         
         <div className="space-y-2 text-gray-700 text-sm">
           <p><strong className="w-24 inline-block">Hari:</strong> {dataEkskul.hari}</p>
-          <p><strong className="w-24 inline-block">Sesi & Jam:</strong> {dataEkskul.sesi} ({getJamSesi(dataEkskul.sesi)})</p>
+          <p><strong className="w-24 inline-block">Sesi & Jam:</strong> {dataEkskul.sesi} ({JAM_SESI[dataEkskul.sesi]})</p>
           <p><strong className="w-24 inline-block">Pembina:</strong> {dataEkskul.pembina}</p>
           <p><strong className="w-24 inline-block">Kuota:</strong> {dataEkskul.kuota} tempat</p>
         </div>
