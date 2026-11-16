@@ -1,3 +1,4 @@
+// Fixed: Using JAM_SESI instead of getJamSesi
 import { ambilEkskul, ambilAnggota } from '@/data/ambil';
 import { ekskul, pendaftar, tambahPendaftar, JAM_SESI } from '@/data/ekskul';
 import { notFound } from 'next/navigation';
